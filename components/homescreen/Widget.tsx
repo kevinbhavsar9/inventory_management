@@ -1,8 +1,11 @@
 import { InventoryData } from "@/types/HomeScreenTypes";
-import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
+// import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
+import DescriptionIcon from '@mui/icons-material/Description';
+import PinDropIcon from '@mui/icons-material/PinDrop';
 import Forecast from "./Forecast";
 import { formatNumberWithSuffix } from "@/utils/helper";
 import { useRouter } from "next/router";
+import Tooltip from "../shared/Tooltip";
 
 
 interface WidgetPropsType {
@@ -33,10 +36,17 @@ export default function Widget({ cityData, handleLocationChange }: WidgetPropsTy
 
 
     return (
-        <div className="from-blue-800 to-cyan-900 p-4 rounded-xl border border-blue-400 hover:cursor-pointer hover:border-primary-active text-white min-w-58 shadow-lg backdrop-blur-sm" onClick={() => handleWidgetClick(id)}>
+        <div className="from-blue-800 to-cyan-900 p-4 rounded-xl border border-blue-400 hover:border-primary-active text-white min-w-58 shadow-lg backdrop-blur-sm" >
             <div className="flex items-center justify-between mb-4 ">
-                <h2 className="text-lg font-semibold">{city}</h2>
-                <LocationSearchingIcon className="hover:cursor-pointer hover:text-primary-active" onClick={() => handleLocationChange(latitude!, longitude!)} />
+                <Tooltip toolTipText={`View details`} placement="top">
+
+                    <h2 className="text-lg font-semibold hover:cursor-pointer" onClick={() => handleWidgetClick(id)}>{city}</h2>
+                </Tooltip>
+                <div className="flex">
+
+                    <Tooltip toolTipText={`Navigate to ${city}`} placement="top"><PinDropIcon className="hover:cursor-pointer hover:text-primary-active mr-2" onClick={() => handleLocationChange(latitude!, longitude!)} /></Tooltip>
+                    <Tooltip toolTipText={`View details`} placement="top"><DescriptionIcon className="hover:cursor-pointer hover:text-primary-active" onClick={() => handleWidgetClick(id)} /></Tooltip>
+                </div>
             </div>
 
             <Forecast label="Forecast Sales" value={formatNumberWithSuffix(forecastSales)} graphData={salesTrend} graphPrimaryKey="historic" graphSecondaryKey="forecast" />

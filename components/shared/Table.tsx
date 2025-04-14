@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { TableData } from '@/utils/MockData/detailsPageGraphData';
-import { PRIMARY_LIGHT_COLOR } from '@/utils/variableConstants';
+import { PRIMARY_COLOR, PRIMARY_LIGHT_COLOR } from '@/utils/variableConstants';
 
 
 export default function TableComponent({ headersArr, headersTitle, data, rowTitleArr }: { headersArr: string[], headersTitle: string, data: TableData[], rowTitleArr: string[] }) {
@@ -21,7 +21,10 @@ export default function TableComponent({ headersArr, headersTitle, data, rowTitl
                 <TableHead>
                     <TableRow >
 
-                        <TableCell sx={{ backgroundColor: PRIMARY_LIGHT_COLOR, color: "lightgray" }}>{headersTitle}</TableCell>
+                        <TableCell sx={{
+                            backgroundColor: PRIMARY_LIGHT_COLOR, color: "lightgray", position: 'sticky',
+                            left: 0, zIndex: 10,
+                        }}>{headersTitle}</TableCell>
                         {
                             headersArr.map((headerName, index) => (
                                 <TableCell key={index} align="right" sx={{ backgroundColor: PRIMARY_LIGHT_COLOR, color: "lightgray" }}>{headerName}</TableCell>
@@ -37,7 +40,10 @@ export default function TableComponent({ headersArr, headersTitle, data, rowTitl
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
                         >
-                            <TableCell component="th" scope="row" sx={{ color: "lightgray", fontSize: "12px", fontWeight: "bold" }}>
+                            <TableCell component="th" scope="row" sx={{
+                                color: "lightgray", fontSize: "12px", fontWeight: "bold", position: 'sticky',
+                                left: 0, zIndex: 10, backgroundColor: PRIMARY_COLOR,
+                            }}>
                                 {rowTitle.replace(/_/g, ' ')}
                             </TableCell>
                             {data.map((row) => (

@@ -8,9 +8,12 @@ import DropDown from './DropDown';
 import { NavbarDropDownMenuItem } from '@/utils/constants';
 import { useWidgetLayout } from '@/context/CityLayoutContext';
 import { useRouter } from 'next/router';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import Tooltip from './Tooltip';
+import { SECONDARY_COLOR } from '@/utils/variableConstants';
 
 
-export default function MenuAppBar() {
+export default function Navbar({ handleShowTour }: { handleShowTour: () => void }) {
     const { selectedLayout, handleWidgetLayoutChange } = useWidgetLayout();
 
     const router = useRouter();
@@ -22,23 +25,15 @@ export default function MenuAppBar() {
     }
 
     return (
-        <AppBar position="static" >
+        <AppBar position="static" className='bg-secondary' sx={{
+            minHeight: { xs: '64px', sm: '64px' },
+            backgroundColor: SECONDARY_COLOR
+        }}>
             <Toolbar className='bg-secondary shadow-2xl text-white'>
-                {/* <IconButton
-                    size="large"
-                    edge="start"
-                    aria-label="menu"
-                    sx={{
-                        mr: 2, minHeight: {
-                            xs: '64px', //navbar fix for the screen below 600px
-                            sm: '64px',
-                        },
-                    }}
-                >
-                    <MenuIcon className='text-white' />
-                </IconButton> */}
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleLogoClick} className='hover:cursor-pointer'>
-                    Inventro
+                    <Tooltip toolTipText='Go to Home' placement='bottom'>
+                        Inventro
+                    </Tooltip>
                 </Typography>
 
                 {
@@ -48,18 +43,18 @@ export default function MenuAppBar() {
                 }
 
                 <div>
-                    <IconButton
-                        size="large"
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        color="inherit"
-                    >
-                        <AccountCircle />
-                    </IconButton>
-
+                    <Tooltip toolTipText='Tour' placement='bottom'>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            color="inherit"
+                        >
+                            <SmartToyIcon onClick={handleShowTour} className='text-white' />
+                        </IconButton>
+                    </Tooltip>
                 </div>
-
             </Toolbar>
         </AppBar>
     );

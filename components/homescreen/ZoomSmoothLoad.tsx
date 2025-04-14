@@ -13,7 +13,7 @@ const ZoomInOnLoad = ({ location }: { location: LatLngExpression }) => {
             map.setView(location, 4, {
                 animate: true,
                 duration: 9,
-                easeLinearity: 0.10,
+                easeLinearity: 0.40,
             });
         }, 1000);
 

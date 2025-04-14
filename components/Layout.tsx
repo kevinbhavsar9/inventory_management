@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo } from 'react';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import Navbar from "@/components/shared/Navbar";
 import { useWidgetLayout } from "@/context/CityLayoutContext";
 import { useRouter } from 'next/router';
@@ -12,6 +12,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
 
+    const [showTour, setShowTour] = useState<boolean>(false);
     const { selectedLayout } = useWidgetLayout();
     const router = useRouter();
     const { pathname } = router;
@@ -28,16 +29,37 @@ const Layout = ({ children }: LayoutProps) => {
         }
     }, [])
 
+    const handletourClose = () => {
+        const isFirstTime = localStorage.getItem("isFirstTime")
+        if (!isFirstTime) {
+            localStorage.setItem("isFirstTime", "0")
+        }
+    }
+
+    const handleShowTour = useCallback(() => {
+        setShowTour(true)
+    }, [])
+
+    useEffect(() => {
+        const isFirstTime = localStorage.getItem("isFirstTime")
+        setShowTour(isFirstTime === null)
+    }, [])
+
+
+
     return (
         <div className="guide-global min-h-screen flex flex-col">
-            <Steps
-                enabled={true}
-                steps={onboardingSteps}
-                initialStep={0}
-                onExit={() => { }}
-            />
-            <header className="h-16 selector1">
-                <Navbar />
+            {
+                <Steps
+                    enabled={showTour}
+                    steps={onboardingSteps}
+                    initialStep={0}
+                    onExit={handletourClose}
+                />
+            }
+
+            <header className="h-16">
+                <Navbar handleShowTour={handleShowTour} />
             </header>
 
             <main className={`flex flex-1 relative bg-primary ${pathname === "/" && layoutwiseClasses[selectedLayout]} w-full`}

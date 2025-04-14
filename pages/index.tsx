@@ -32,7 +32,7 @@ const Index = () => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => setShowMap(true));
     } else {
-      setTimeout(() => setShowMap(true), 200); // fallback
+      setTimeout(() => setShowMap(true), 200);
     }
   }, []);
 

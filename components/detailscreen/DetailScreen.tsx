@@ -4,6 +4,8 @@ import DetailHeader from './DetailHeader';
 import TableComponent from '../shared/Table';
 import { detailsPageData, detailsPageDataElemType, dummyGraphData, TableData } from '@/utils/MockData/detailsPageGraphData';
 import { useSelectedDataset } from '@/context/SelectedDatasetContext';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
 
 
 
