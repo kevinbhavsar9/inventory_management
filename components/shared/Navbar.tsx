@@ -18,18 +18,13 @@ export default function Navbar({ handleShowTour }: { handleShowTour: () => void 
     const router = useRouter();
     const pathname = router.pathname;
 
-    const handleLogoClick = () => {
-        // Handle logo click event here
-        router.push('/')
-    }
-
     return (
         <AppBar position="static" className='bg-secondary' sx={{
             minHeight: { xs: '64px', sm: '64px' },
             backgroundColor: SECONDARY_COLOR
         }}>
             <Toolbar className='bg-secondary shadow-2xl text-white'>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleLogoClick} className='hover:cursor-pointer'>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={() => router.push('/')} className='hover:cursor-pointer'>
                     <Tooltip toolTipText='Go to Home' placement='bottom'>
                         Inventro
                     </Tooltip>

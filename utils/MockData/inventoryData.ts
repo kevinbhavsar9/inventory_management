@@ -9,9 +9,9 @@ export const inventoryData = [
     forecastSales: 12000,
     forecastAccuracy: 87.5,
     salesTrend: [
-      { month: "Jan", historic: 10000, forecast: 10500 },
+      { month: "Jan", historic: 10001, forecast: 10500 },
       { month: "Feb", historic: 9500, forecast: 10200 },
-      { month: "Mar", historic: 11000, forecast: 11500 },
+      { month: "Mar", historic: 11001, forecast: 11500 },
       { month: "Apr", historic: 10800, forecast: 11200 },
     ],
     accuracyTrend: [

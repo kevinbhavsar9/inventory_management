@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { memo } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,7 +10,7 @@ import { TableData } from '@/utils/MockData/detailsPageGraphData';
 import { PRIMARY_COLOR, PRIMARY_LIGHT_COLOR } from '@/utils/variableConstants';
 
 
-export default function TableComponent({ headersArr, headersTitle, data, rowTitleArr }: { headersArr: string[], headersTitle: string, data: TableData[], rowTitleArr: string[] }) {
+function TableComponent({ headersArr, headersTitle, data, rowTitleArr }: { headersArr: string[], headersTitle: string, data: TableData[], rowTitleArr: string[] }) {
     return (
         <TableContainer component={Paper} className='overflow-x-scroll w-inherit'>
             <Table
@@ -56,3 +56,5 @@ export default function TableComponent({ headersArr, headersTitle, data, rowTitl
         </TableContainer>
     );
 }
+
+export default memo(TableComponent)

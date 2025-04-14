@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelectedDataset } from '@/context/SelectedDatasetContext';
 import DownloadIcon from '@mui/icons-material/Download';
 import Tooltip from '../shared/Tooltip';
@@ -20,4 +20,4 @@ const StackCard = ({ cardName, cardID }: { cardName: string, cardID: string, }) 
     );
 };
 
-export default StackCard;
+export default memo(StackCard);

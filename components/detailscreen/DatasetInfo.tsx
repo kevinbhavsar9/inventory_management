@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import FolderCopyRoundedIcon from '@mui/icons-material/FolderCopyRounded';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 
@@ -45,4 +45,4 @@ const DatasetInfo = ({ dataset_name, dataset_id, city_name }: DatasetInfoType) =
     );
 };
 
-export default DatasetInfo;
+export default memo(DatasetInfo);

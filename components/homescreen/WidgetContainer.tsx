@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, memo } from 'react';
 import { InventoryData } from '@/types/HomeScreenTypes';
 import { inventoryData } from '@/utils/MockData/inventoryData';
 import { useWidgetLayout } from '@/context/CityLayoutContext';
@@ -124,4 +124,4 @@ const WidgetContainer = ({ handleLocationChange }: WidgetContainerProps) => {
     );
 };
 
-export default WidgetContainer;
+export default memo(WidgetContainer);

@@ -1,6 +1,6 @@
 import { TableData } from '@/utils/MockData/detailsPageGraphData';
 import { graphColorValues } from '@/utils/constants';
-import React from 'react';
+import React, { memo } from 'react';
 import { linesVisibility } from '@/components/detailscreen/ToggleLegends';
 
 import {
@@ -117,4 +117,4 @@ const LineChartWithRefLines = ({ visibility, data }: { visibility: linesVisibili
 }
 
 
-export default LineChartWithRefLines
+export default memo(LineChartWithRefLines)

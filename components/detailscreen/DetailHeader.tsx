@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 
 import { useRouter } from 'next/router';
 import { inventoryData } from '@/utils/MockData/inventoryData';
@@ -37,4 +37,4 @@ const DetailHeader = ({ data }: { data: DetailHeaderDataType }) => {
     );
 };
 
-export default DetailHeader;
+export default memo(DetailHeader);

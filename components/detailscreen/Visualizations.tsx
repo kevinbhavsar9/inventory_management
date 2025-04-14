@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import LineChartWithRefLines from '../shared/Charts/LineChartWithRefLines';
 import { ToggleLegends } from './ToggleLegends';
 import { TableData } from '@/utils/MockData/detailsPageGraphData';
@@ -20,4 +20,4 @@ const Visualizations = ({ data }: { data: TableData[] }) => {
     );
 };
 
-export default Visualizations;
+export default memo(Visualizations);

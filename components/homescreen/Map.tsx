@@ -1,7 +1,7 @@
 
 import { MapContainer, TileLayer } from 'react-leaflet'
 
-import React from "react";
+import React, { memo } from "react";
 import "leaflet/dist/leaflet.css";
 
 import ZoomInOnLoad from './ZoomSmoothLoad';
@@ -9,23 +9,10 @@ import { LatLngExpression } from 'leaflet';
 import { cityType } from '@/types/HomeScreenTypes';
 import HoverMarker from './HoverMarker';
 
-const SimpleMap = ({ selectedAltitudes, cities }: { selectedAltitudes: LatLngExpression, cities: cityType[] }) => {
+const Map = ({ selectedAltitudes, cities }: { selectedAltitudes: LatLngExpression, cities: cityType[] }) => {
 
     const latitude = cities[0].lat;
     const longitude = cities[0].lng;
-
-    // useEffect(() => {
-    //     const link = document.createElement('link');
-    //     link.rel = 'stylesheet';
-    //     link.href = 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css';
-    //     link.integrity = 'sha512-some-hash'; // optional for CSP
-    //     link.crossOrigin = '';
-    //     document.head.appendChild(link);
-
-    //     return () => {
-    //         document.head.removeChild(link);
-    //     };
-    // }, []);
 
 
     return (
@@ -48,4 +35,4 @@ const SimpleMap = ({ selectedAltitudes, cities }: { selectedAltitudes: LatLngExp
     );
 };
 
-export default SimpleMap;
+export default memo(Map);

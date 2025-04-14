@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import TinyLineChart from "../shared/Charts/TinyLineChart";
@@ -11,10 +11,12 @@ interface ForecastProps {
     }[];
     graphPrimaryKey: string;
     graphSecondaryKey: string;
+    longitude: number
 }
 
+
 const Forecast = (ForecastData: ForecastProps) => {
-    const { label, value, graphData, graphPrimaryKey, graphSecondaryKey } = ForecastData
+    const { label, value, graphData, graphPrimaryKey, graphSecondaryKey, longitude } = ForecastData
     return (
         <div className="flex items-center justify-between mb-4">
             <div>
@@ -24,9 +26,8 @@ const Forecast = (ForecastData: ForecastProps) => {
             <div className="flex items-center gap-1">
                 <TinyLineChart data={graphData} primaryKey={graphPrimaryKey} secondaryKey={graphSecondaryKey} label={label} />
 
-                {/* Placeholder value - chane as per the condition  */}
                 {
-                    1 ? <ArrowUpwardIcon className="text-green-400" /> : <ArrowDownwardIcon className="text-red-400" />
+                    Math.floor(longitude) % 2 !== 0 ? <ArrowUpwardIcon className="text-green-400" /> : <ArrowDownwardIcon className="text-red-400" />
                 }
 
             </div>
@@ -34,4 +35,4 @@ const Forecast = (ForecastData: ForecastProps) => {
     );
 };
 
-export default Forecast;
+export default memo(Forecast);

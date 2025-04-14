@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Drawer from '@mui/material/Drawer';
 import { styled, useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -79,4 +79,4 @@ const SideBar = ({ open, handleDrawerClose }: { open: boolean, handleDrawerClose
     );
 };
 
-export default SideBar;
+export default memo(SideBar);

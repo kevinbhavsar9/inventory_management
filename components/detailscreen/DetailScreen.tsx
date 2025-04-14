@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, memo } from 'react';
 import Visualizations from './Visualizations';
 import DetailHeader from './DetailHeader';
 import TableComponent from '../shared/Table';
@@ -40,4 +40,4 @@ const DetailScreen: React.FC = () => {
     );
 };
 
-export default DetailScreen;
+export default memo(DetailScreen);
