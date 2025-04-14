@@ -1,5 +1,4 @@
 import React from 'react';
-import MailIcon from '@mui/icons-material/Mail';
 import { useSelectedDataset } from '@/context/SelectedDatasetContext';
 import DownloadIcon from '@mui/icons-material/Download';
 import Tooltip from '../shared/Tooltip';

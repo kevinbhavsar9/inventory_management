@@ -3,14 +3,13 @@ import { LineChart, Line, Tooltip } from 'recharts';
 
 interface TooltipProps {
     active?: boolean;
-    payload?: any[];
+    payload?: { payload: { historic: string | number; forecast: string | number } }[];
     label?: string;
 }
 
 const CustomTooltip = ({
     active = false,
     payload = [],
-    label,
 }: TooltipProps) => {
     return active && payload && payload.length ? (
         <div className="flex flex-col w-[150px] border border-[#F6F6F6] shadow-tooltip">

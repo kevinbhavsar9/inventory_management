@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import DropDown from './DropDown';
 import { NavbarDropDownMenuItem } from '@/utils/constants';
 import { useWidgetLayout } from '@/context/CityLayoutContext';
