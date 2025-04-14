@@ -23,6 +23,8 @@ const Forecast = (ForecastData: ForecastProps) => {
             </div>
             <div className="flex items-center gap-1">
                 <TinyLineChart data={graphData} primaryKey={graphPrimaryKey} secondaryKey={graphSecondaryKey} label={label} />
+
+                {/* Placeholder value - chane as per the condition  */}
                 {
                     1 ? <ArrowUpwardIcon className="text-green-400" /> : <ArrowDownwardIcon className="text-red-400" />
                 }

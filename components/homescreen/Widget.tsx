@@ -12,7 +12,7 @@ interface WidgetPropsType {
     cityData: InventoryData;
     handleLocationChange: (latitude: number, longitude: number) => void;
 }
-
+//widget component 
 export default function Widget({ cityData, handleLocationChange }: WidgetPropsType) {
 
     const router = useRouter();
@@ -44,7 +44,10 @@ export default function Widget({ cityData, handleLocationChange }: WidgetPropsTy
                 </Tooltip>
                 <div className="flex">
 
+                    {/* Button for location navigation */}
                     <Tooltip toolTipText={`Navigate to ${city}`} placement="top"><PinDropIcon className="hover:cursor-pointer hover:text-primary-active mr-2" onClick={() => handleLocationChange(latitude!, longitude!)} /></Tooltip>
+
+                    {/* Button for details page  */}
                     <Tooltip toolTipText={`View details`} placement="top"><DescriptionIcon className="hover:cursor-pointer hover:text-primary-active" onClick={() => handleWidgetClick(id)} /></Tooltip>
                 </div>
             </div>

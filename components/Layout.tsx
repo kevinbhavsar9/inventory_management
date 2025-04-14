@@ -34,6 +34,7 @@ const Layout = ({ children }: LayoutProps) => {
         if (!isFirstTime) {
             localStorage.setItem("isFirstTime", "0")
         }
+        setShowTour(false)
     }
 
     const handleShowTour = useCallback(() => {
@@ -45,8 +46,6 @@ const Layout = ({ children }: LayoutProps) => {
         setShowTour(isFirstTime === null)
     }, [])
 
-
-
     return (
         <div className="guide-global min-h-screen flex flex-col">
             {
@@ -55,6 +54,14 @@ const Layout = ({ children }: LayoutProps) => {
                     steps={onboardingSteps}
                     initialStep={0}
                     onExit={handletourClose}
+                    options={{
+                        showButtons: true,
+                        showStepNumbers: true,
+                        exitOnOverlayClick: false,
+                        doneLabel: 'End',
+                        nextLabel: 'Next',
+                        prevLabel: 'Back',
+                    }}
                 />
             }
 

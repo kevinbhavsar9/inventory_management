@@ -27,18 +27,18 @@ const CustomizedLabelB = () => {
     const dynamicX = isAbove600 ? -100 : isAbove300 ? -50 : -30;
 
     return (
-            <Text
-                x={dynamicX}
-                y={0}
-                dx={-60}
-                dy={30}
-                width={280}
-                transform={`rotate(${-90})`}
-                color='white'
-                fontSize={12}
-            >
-                Cons. (K FT)
-            </Text>
+        <Text
+            x={dynamicX}
+            y={0}
+            dx={-60}
+            dy={30}
+            width={280}
+            transform={`rotate(${-90})`}
+            color='white'
+            fontSize={12}
+        >
+            Cons. (K FT)
+        </Text>
     );
 };
 
@@ -75,21 +75,40 @@ const LineChartWithRefLines = ({ visibility, data }: { visibility: linesVisibili
 
                 <ReferenceArea x1="Q1 2025" x2="Q2 2026" fill='transparent' label={{ value: 'Forecast', position: 'top', fill: PRIMARY_ACTIVE_COLOR }} />
 
-                {
-                    visibility.consumption && <Line key={`consumption-${visibility.consumption}`} type="linear" dataKey="Consumption" stroke={`${graphColorValues.consumption}`} />
+                <Line
+                    key={`consumption`}
+                    type="linear"
+                    dataKey="Consumption"
+                    stroke={`${graphColorValues.consumption}`}
+                    hide={!visibility.consumption}
+                />
 
-                }
-                {
-                    visibility.aiForecast && <Line key={`aiForecast-${visibility.aiForecast}`} type="linear" dataKey="AI_Forecast" stroke={`${graphColorValues.aiForecast}`} strokeDasharray="5 5" />
+                <Line
+                    key={`aiForecast`}
+                    type="linear"
+                    dataKey="AI_Forecast"
+                    stroke={`${graphColorValues.aiForecast}`}
+                    strokeDasharray="5 5"
+                    hide={!visibility.aiForecast}
+                />
 
-                }
-                {
-                    visibility.finalForecast && <Line key={`finalForecast-${visibility.finalForecast}`} type="linear" dataKey="Final_Forecast" stroke={`${graphColorValues.finalForecast}`} strokeDasharray="5 5" />
-                }
-                {
-                    visibility.prevForecast && <Line key={`prevForecast-${visibility.prevForecast}`} type="linear" dataKey="Previous_Forecast" stroke={`${graphColorValues.prevForecast}`} strokeDasharray="5 5" />
+                <Line
+                    key={`finalForecast`}
+                    type="linear"
+                    dataKey="Final_Forecast"
+                    stroke={`${graphColorValues.finalForecast}`}
+                    strokeDasharray="5 5"
+                    hide={!visibility.finalForecast}
+                />
 
-                }
+                <Line
+                    key={`prevForecast`}
+                    type="linear"
+                    dataKey="Previous_Forecast"
+                    stroke={`${graphColorValues.prevForecast}`}
+                    strokeDasharray="5 5"
+                    hide={!visibility.prevForecast}
+                />
 
             </LineChart>
         </ResponsiveContainer>

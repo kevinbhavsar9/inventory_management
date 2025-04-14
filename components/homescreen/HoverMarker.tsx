@@ -7,8 +7,8 @@ import { LatLngExpression } from 'leaflet';
 export type CityWithoutLatLng = Omit<cityType, 'lat' | 'lng'>;
 
 const myIcon = new L.Icon({
-    iconUrl: "/assets/marker.svg",
-    iconRetinaUrl: "/assets/marker.svg",
+    iconUrl: "/assets/map-pin.svg",
+    iconRetinaUrl: "/assets/map-pin.svg",
     popupAnchor: [-0, -0],
     iconSize: [50, 45],
     className: "text-red-500",

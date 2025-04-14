@@ -11,6 +11,8 @@ interface WidgetContainerProps {
     handleLocationChange: (latitude: number, longitude: number) => void;
 }
 
+//Container for holding all the widgets
+
 const WidgetContainer = ({ handleLocationChange }: WidgetContainerProps) => {
     const { selectedLayout } = useWidgetLayout();
 
