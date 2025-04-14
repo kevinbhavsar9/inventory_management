@@ -7,11 +7,13 @@
   --color-primary: #11262f;
   --color-primary-light: #193d4e;
   --color-primary-active: #66ffe1;
+  --color-primary-hover: #122c39;
   --color-secondary: #0d1419;
   --color-text-grey: #0d1419;
   --breakpoint-xs: 400px;
   --breakpoint-sm: 400px;
   --breakpoint-md: 768px;
+  /* --breakpoint-max-md: 768px; */
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
 }

@@ -37,24 +37,27 @@ export default function Navbar({ handleShowTour }: { handleShowTour: () => void 
                 </Typography>
 
                 {
-                    pathname === "/" && <div className='px-2'>
-                        <DropDown menuItems={NavbarDropDownMenuItem} selectedItem={selectedLayout} onChange={handleWidgetLayoutChange} label={"widgetLayoutChange"} />
-                    </div>
+                    pathname === "/" && <>
+                        <div className='px-2'>
+                            <DropDown menuItems={NavbarDropDownMenuItem} selectedItem={selectedLayout} onChange={handleWidgetLayoutChange} label={"widgetLayoutChange"} />
+                        </div>
+                        <div>
+                            <Tooltip toolTipText='Tour' placement='bottom'>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <SmartToyIcon onClick={handleShowTour} className='text-white' />
+                                </IconButton>
+                            </Tooltip>
+                        </div>
+                    </>
                 }
 
-                <div>
-                    <Tooltip toolTipText='Tour' placement='bottom'>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <SmartToyIcon onClick={handleShowTour} className='text-white' />
-                        </IconButton>
-                    </Tooltip>
-                </div>
+
             </Toolbar>
         </AppBar>
     );

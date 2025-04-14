@@ -16,22 +16,29 @@ import {
     ReferenceArea
 } from 'recharts';
 import { PRIMARY_ACTIVE_COLOR } from '@/utils/variableConstants';
+import { useMediaQuery, useTheme } from '@mui/material';
+
 
 
 const CustomizedLabelB = () => {
+    const theme = useTheme();
+    const isAbove600 = useMediaQuery(theme.breakpoints.up('sm')); // sm = 600px
+    const isAbove300 = useMediaQuery(theme.breakpoints.up('xs')); // sm = 600px
+    const dynamicX = isAbove600 ? -100 : isAbove300 ? -50 : -30;
+
     return (
-        <Text
-            x={-20}
-            y={0}
-            dx={-200}
-            dy={30}
-            width={280}
-            transform={`rotate(${-90})`}
-            color='white'
-            fontSize={12}
-        >
-            CONSUMPTION FT, THOUSANDS
-        </Text>
+            <Text
+                x={dynamicX}
+                y={0}
+                dx={-60}
+                dy={30}
+                width={280}
+                transform={`rotate(${-90})`}
+                color='white'
+                fontSize={12}
+            >
+                Cons. (K FT)
+            </Text>
     );
 };
 

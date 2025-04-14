@@ -2,15 +2,9 @@ import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import { styled, useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-
-
-
-
 import StackCard from '../detailscreen/StackCard';
 import Divider from '@mui/material/Divider';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -65,7 +59,7 @@ const SideBar = ({ open, handleDrawerClose }: { open: boolean, handleDrawerClose
             <DrawerHeader className='flex justify-between items-center'>
                 <h2 className='text-primary-active !ml-2 flex-1'>Datasets</h2>
                 <IconButton onClick={handleDrawerClose}>
-                    {theme.direction === 'ltr' ? <KeyboardDoubleArrowLeftIcon className='bg-primary-active text-black' /> : <ChevronRightIcon />}
+                    {theme.direction === 'ltr' ? <KeyboardDoubleArrowLeftIcon className='bg-primary-active text-black' /> : <></>}
                 </IconButton>
             </DrawerHeader>
 

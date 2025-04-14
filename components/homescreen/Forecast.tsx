@@ -22,7 +22,7 @@ const Forecast = (ForecastData: ForecastProps) => {
                 <p className="text-2xl font-semibold">{value}</p>
             </div>
             <div className="flex items-center gap-1">
-                <TinyLineChart data={graphData} primaryKey={graphPrimaryKey} secondaryKey={graphSecondaryKey} />
+                <TinyLineChart data={graphData} primaryKey={graphPrimaryKey} secondaryKey={graphSecondaryKey} label={label} />
                 {
                     1 ? <ArrowUpwardIcon className="text-green-400" /> : <ArrowDownwardIcon className="text-red-400" />
                 }

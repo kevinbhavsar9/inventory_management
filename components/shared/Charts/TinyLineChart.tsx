@@ -1,14 +1,38 @@
 import React from 'react';
 import { LineChart, Line, Tooltip } from 'recharts';
 
+interface TooltipProps {
+    active?: boolean;
+    payload?: any[];
+    label?: string;
+}
 
-// Graph Data Structure - [
-// const data = [
-//     { month: "Jan", historic: 9100, forecast: 9300 },
-//     { month: "Feb", historic: 9400, forecast: 9600 },
-//     { month: "Mar", historic: 9700, forecast: 9900 },
-//     { month: "Apr", historic: 10000, forecast: 10100 },
-// ];
+const CustomTooltip = ({
+    active = false,
+    payload = [],
+    label,
+}: TooltipProps) => {
+    return active && payload && payload.length ? (
+        <div className="flex flex-col w-[150px] border border-[#F6F6F6] shadow-tooltip">
+            <div className="flex flex-col p-3 gap-3 bg-white">
+                <div className="flex gap-2 justify-start items-center">
+                    <div className="text-[#4D4D4D] text-xs">
+
+                        Historic :{" "}
+
+                        <span className="font-semibold">{payload[0].payload.historic}</span>
+                    </div>
+                </div>
+                <div className="flex gap-2 justify-start items-center">
+                    <div className="text-[#4D4D4D] text-xs">
+                        Forecast :{" "}
+                        <span className="font-semibold">{payload[0].payload.forecast}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    ) : null;
+};
 
 
 interface TinyLineChartType {
@@ -17,10 +41,11 @@ interface TinyLineChartType {
     }[];
     primaryKey: string;
     secondaryKey: string;
+    label: string;
 }
 
 
-const TinyLineChart = ({ data, primaryKey, secondaryKey }: TinyLineChartType) => {
+const TinyLineChart = ({ data, primaryKey, secondaryKey, label }: TinyLineChartType) => {
     return (
         <LineChart width={70} height={50} data={data}>
             <Line type="monotone" dataKey={primaryKey} stroke="#346b77" strokeWidth={2} />
@@ -31,7 +56,7 @@ const TinyLineChart = ({ data, primaryKey, secondaryKey }: TinyLineChartType) =>
                 top: '30px',
                 transform: 'translateX(-50%)',
                 pointerEvents: 'none',
-            }} />
+            }} content={<CustomTooltip label={label} />} />
 
         </LineChart>
 
