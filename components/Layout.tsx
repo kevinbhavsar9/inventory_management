@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo } from 'react';
 import Navbar from "@/components/shared/Navbar";
 import { useWidgetLayout } from "@/context/CityLayoutContext";
 import { useRouter } from 'next/router';
-import { Steps, Hints } from 'intro.js-react';
+import { Steps } from 'intro.js-react';
 import { onboardingSteps } from '@/utils/constants';
 
 
