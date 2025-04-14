@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "intro.js/introjs.css";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 1920px;
+  --color-primary: #11262f;
+  --color-primary-light: #193d4e;
+  --color-primary-active: #66ffe1;
+  --color-secondary: #0d1419;
+  --color-text-grey: #0d1419;
+  --breakpoint-xs: 400px;
+  --breakpoint-sm: 400px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+.leaflet-container {
+  background: #000;
+}
+
+.leaflet-tooltip {
+  z-index: 2000 !important; /* or anything higher than your card z-index */
+}
+
+.leaflet-popup {
+  z-index: 2000 !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
